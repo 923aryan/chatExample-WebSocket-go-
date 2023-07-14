@@ -8,7 +8,7 @@ function changeChatRoom(){
 
 }
 
-function sendMessages(){
+function sendMessage(){
     var newMessage = document.getElementById("message")
     if(newMessage != null ){
         console.log(newMessage)
@@ -17,14 +17,14 @@ function sendMessages(){
 }
 
 window.onload = function(){
-    document.getElementById("chtroom-selection").onsubmit = changeChatRoom()
+    document.getElementById("chatroom-selection").onsubmit = changeChatRoom()
     document.getElementById("chatroom-message").onsubmit = sendMessage()
 
     if(window["WebSocket"]){
         console.log("supports websocket")
-        // new WebSocket("ws://",document.location.host + "/ws");
+       conn = new WebSocket("ws://"+document.location.host + "/ws");
     }else{
-        console.log("browser does not supprot websocekt")
+        console.log("browser does not support websocekt")
     }
 
 }
